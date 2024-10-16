@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="tempe.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="favi.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/10480/10480648.png">
     <title>Tempestas - News</title>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <style>
-
-        
         /* Center-align images in their container */
         .img-container {
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically if needed */
-            width: 100%; /* Full width for responsiveness */
+            justify-content: center;
+            width: 100%;
         }
 
         /* Make sure images are responsive */
         .img-fluid {
             max-width: 100%;
-            height: auto; /* Maintain aspect ratio */
+            height: auto;
         }
-html{
-    background-color: rgba(84, 180, 215, 0.509);
-}
+
+        html {
+            background-color: rgba(84, 180, 215, 0.509);
+        }
+
         body {
             font-family: Arial, sans-serif;
-  
         }
 
         .card-header {
@@ -42,11 +41,9 @@ html{
 
         .card-body {
             background-color: #343a40de;
-            color: black!important;
-        
+            color: black !important;
         }
 
-    
         .hidden-content {
             display: none;
         }
@@ -61,278 +58,266 @@ html{
             color: #555;
             display: none;
         }
-        
 
+        .container-fluid {
+            height: auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .navbar.navbar-expand-lg.bg-body-tertiary {
+            height: 80px;
+            width: 100%;
+            position: sticky;
+            background-color: rgba(155, 211, 231, 0.23) !important;
+            border-bottom: 2px solid rgba(47, 85, 173, 0.786) !important;
+        }
 
+        #logo1 {
+            height: 60px;
+            width: auto;
+            background-image: url('logo.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 2;
+        }
 
-.container-fluid {
-    height: auto;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.navbar.navbar-expand-lg.bg-body-tertiary {
-    height: 80px;
-    width: 100%;
-    position: sticky;
-    background-color: rgba(155, 211, 231, 0.23) !important;
-    border-bottom: 2px solid rgba(47, 85, 173, 0.786) !important;
-}
+        .goit {
+            height: 62px;
+            width: 250px;
+        }
 
+        .nav-link.active {
+            color: rgb(14, 12, 72) !important;
+        }
 
-#logo1 {
-    height: 60px;
-    width: auto;
-    background-image: url('logo.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 2;
-}
+        .nav-link {
+            color: rgb(14, 12, 72) !important;
+            font-weight: 500;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px !important;
+            text-align: center;
+            font-weight: 500 !important;
+            margin-right: 50px;
+        }
 
-.goit {
-    height: 62px;
-    width: 250px;
-}
+        #me {
+            height: auto;
+            width: 200px;
+        }
 
-.nav-link.active {
-    color: rgb(14, 12, 72)!important;
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            align-items: center;
+        }
 
-}
+        .btn.btn-outline-success {
+            height: 35px;
+            font-size: 13px !important;
+            border: 1px solid rgb(95, 147, 216) !important;
+            color: rgb(255, 255, 255) !important;
+            background-color: rgba(49, 60, 214, 0.918);
+            padding-right: 10px;
+            font-weight: 800;
+        }
 
-.nav-link {
-    color:rgb(14, 12, 72)!important;
-    font-weight: 500;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 18px !important;
-    text-align: center;
-    font-weight: 500!important;
-    margin-right: 50px;
-}
+        .btn.btn-outline-success:hover {
+            background-color: rgba(0, 0, 0, 0.786);
+            color: rgb(255, 208, 0);
+        }
 
-#me{
-    height: auto;
-    width: 200px;
-}
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
 
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10px;
+            }
+        }
 
-.button-container {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-    align-items: center;
-}
+        @media only screen and (max-width: 992px) {
+            .navbar.navbar.navbar-expand-lg.bg-body-tertiary {
+                height: 0% !important;
+                padding-left: 0% !important;
+                z-index: 1;
+            }
 
+            #logo1 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                height: 65px;
+                width: auto;
+            }
 
-.btn.btn-outline-success {
-    height: 35px;
-    font-size: 13px !important;
-    border: 1px solid rgb(95, 147, 216) !important;
-    color: rgb(255, 255, 255) !important;
-    background-color: rgba(49, 60, 214, 0.918);
-    padding-right: 10px;
-    font-weight: 800;
-}
+            .goit {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-.btn.btn-outline-success:hover {
-    background-color: rgba(0, 0, 0, 0.786);
-    color: rgb(255, 208, 0);
-}
+            #qaz {
+                font-size: 11px;
+            }
+        }
 
-@media (max-width: 768px) {
-    .navbar-nav {
-        text-align: center;
-    }
+        .nav-link:hover {
+            text-decoration: rgba(173, 47, 47, 0.786) solid underline;
+            color: rgb(50, 1, 1);
+        }
 
-    .button-container {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-    }
-}
+        .keep {
+            height: auto;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
+        .ni0 {
+            text-decoration: none;
+            color: white;
+            line-height: 0px;
+        }
 
+        .ni0:hover {
+            color: rgba(255, 217, 0, 0.749);
+            text-decoration: underline;
+        }
 
+        .bolder {
+            text-decoration: underline;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
 
+        .help {
+            color: white;
+            margin: 40px;
+        }
 
+        #qaz {
+            height: auto;
+            width: auto;
+            display: flex;
+            background-color: #0a1045c7;
+            justify-content: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            z-index: -1;
+        }
 
+        #jin {
+            height: 60px;
+            width: auto;
+            background-color: #280d04ea;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
 
+        .ki {
+            text-decoration: none;
+            font-size: 13px;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-left: 20px;
+        }
 
+        .ki:hover {
+            color: rgba(255, 217, 0, 0.749);
+            text-decoration: underline;
+        }
 
+        .whitee {
+            height: 1px;
+            width: auto;
+            background-color: white;
+        }
 
+        #jin2 {
+            height: auto;
+            width: auto;
+            background-color: #180904ea;
+            color: white;
+            text-align: center;
+        }
 
-@media only screen and (max-width: 992px) {
+        .fol {
+            height: auto;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
 
-    .navbar.navbar.navbar-expand-lg.bg-body-tertiary{
-        height: 0% !important; 
-        padding-left: 0% !important; 
-        z-index: 1; 
-    }
-    #logo1{
-        display: block ;
-        margin-left: auto ;
-        margin-right: auto;
-        height: 65px;
-        width: auto;
- 
-    }
-    .goit{
-        display: block ;
-        margin-left: auto ;
-        margin-right: auto;
-  
-    }
-    
-    #qaz{
-        font-size: 11px;
-    }    
-}
+        #cd {
+            height: 40px;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            border: 2px solid brown;
+            background-color: hsla(0, 100%, 50%, 0.673);
+            text-decoration: none;
+            color: #ffffff;
+        }
 
+        .ko {
+            height: 40px;
+            width: auto;
+            background-color: #f5e400;
+            display: flex;
+            justify-content: center;
+            border: 2px solid brown;
+        }
 
-.nav-link:hover{
-    text-decoration: rgba(173, 47, 47, 0.786) solid underline;
-    color: rgb(50, 1, 1);
-}
-.keep{
-    height: auto;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items:flex-start;
-}
-
-
-.ni0{
-    text-decoration: none;
-    color: white;
-    line-height: 0px;
-}
-.ni0:hover{
-    color: rgba(255, 217, 0, 0.749);
-    text-decoration: underline;
-}
-.bolder{
-    text-decoration: underline;
-    margin-bottom: 15px;
-    font-weight: 600;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.help{
-    color: white;
-    margin: 40px;
-    }
-    #qaz{
-        height: auto;
-        width: auto;
-        display: flex;
-  background-color:#0a1045c7 ;
-        justify-content: center;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        z-index: -1;
-    }
-#jin{
-    height: 60px;
-    width: auto;
-    background-color: #280d04ea;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.ki{
-    text-decoration: none;
-    font-size: 13px;
-    color: white;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-left: 20px;
-}
-.ki:hover{
-    color: rgba(255, 217, 0, 0.749);
-    text-decoration: underline;
-}
-
-.whitee{
-    height: 1px;
-    width: auto;
-    background-color: white;
-}
-
-#jin2{
-    height: auto;
-    width: auto;
-    background-color: #180904ea;
-    color: white;
-    text-align: center;
-}
-
-
-.fol{
-    height: auto;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-
-}
-#cd{
-    height: 40px;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    border: 2px solid brown;
-    background-color: hsla(0, 100%, 50%, 0.673);
-    text-decoration: none;
-    color: #ffffff;
-}
-.ko{
-    height: 40px;
-    width: auto;
-    background-color: #f5e400;
-    display: flex;
-    justify-content: center;
-    border: 2px solid brown;
-}
-
-.badge .badge-primary .m-1{
-    color: black !important;;
-}
+        .badge .badge-primary .m-1 {
+            color: black !important;
+        }
     </style>
 </head>
+
 <body>
     <header>
-
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  
-          <div class="container-fluid">
-            <div class="goit">
-              <div id="logo1"></div>
-            </div>
-          <div id="me"></div>
-            <div class="navbar-brand"></div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="map.html">Maps</a></li>
-                    <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
-                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                  </ul>
-              <!-- Ensure the form is inside the collapse div for responsive behavior -->
-              <form class="d-flex ms-auto mt-2 mt-lg-0" role="search">
-                <div class="button-container">
-                  <button class="btn btn-outline-success" type="submit">Log In</button>
-                  <button class="btn btn-outline-success" type="submit">Sign In</button>
+            <div class="container-fluid">
+                <div class="goit">
+                    <div id="logo1"></div>
                 </div>
-              </form>
+                <div id="me"></div>
+                <div class="navbar-brand"></div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="map.html">Maps</a></li>
+                        <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    </ul>
+                    <!-- Ensure the form is inside the collapse div for responsive behavior -->
+                    <form class="d-flex ms-auto mt-2 mt-lg-0" role="search">
+                        <div class="button-container">
+                            <button class="btn btn-outline-success" type="submit">Log In</button>
+                            <button class="btn btn-outline-success" type="submit">Sign In</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
         </nav>
-      </header>
+    </header>
+
     <div class="container mt-5">
         <div class="row">
             <!-- Main Content -->
