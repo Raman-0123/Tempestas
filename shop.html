@@ -4,8 +4,8 @@
     <!-- Meta Tags and Title -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Tempestas</title>
-    <link rel="icon" type="image/x-icon" href="favi.png">
+    <title>Tempestas - Shop</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/10480/10480648.png">
     
     <!-- External CSS and Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -28,6 +28,7 @@
 
         body {
             background: linear-gradient(180deg, rgba(182, 211, 232, 0.532) 0%, rgb(173, 218, 238) 100%);
+            font-size: 20px; /* Moved from first code */
         }
 
         /* Navbar styles */
@@ -522,6 +523,70 @@
             transform: scale(1.05);
         }
 
+        /* Back to Top Button Styles */
+        #myBtn {
+            position: fixed;
+            bottom: 80px; /* Positioned above the View Cart button */
+            right: 30px;
+            z-index: 100; /* Higher than other elements to ensure visibility */
+            display: inline-block;
+            background-color: rgba(49, 60, 214, 0.918);
+            color: white;
+            padding: 12px 20px;
+            border: none; /* Removed border */
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background-color: rgba(24, 11, 92, 0.856);
+            transform: translateY(-2px);
+        }
+
+        /* View Cart Button Styles */
+        #cart-btn {
+            position: fixed;
+            bottom: 20px; /* Adjusted to be below the Back to Top button */
+            right: 30px;
+            z-index: 100; /* Higher than other elements to ensure visibility */
+            display: inline-block;
+            background-color: rgba(49, 60, 214, 0.918);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        #cart-btn:hover {
+            background-color: rgba(24, 11, 92, 0.856);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #cart-btn {
+                bottom: 15px;
+                right: 20px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            #myBtn {
+                bottom: 60px; /* Adjust if necessary */
+                right: 20px;
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -581,11 +646,14 @@
 
     <!-- Main Content -->
     <main>
+        <!-- View Cart Button -->
+        <a href="#cart" id="cart-btn" aria-label="View Cart">View Cart</a>
+        
         <div class="container mt-5">
             <h1 class="text-center mb-5">Our Products</h1>
             <div class="row">
                 <!-- Product 1: Umbrella -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card product-card shadow-sm h-100">
                         <img src="https://pngimg.com/uploads/umbrella/umbrella_PNG69212.png" class="card-img-top" alt="Umbrella">
                         <div class="card-body d-flex flex-column">
@@ -601,7 +669,7 @@
                     </div>
                 </div>
                 <!-- Product 2: Raincoat -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card product-card shadow-sm h-100">
                         <img src="https://www.gemschoolwear.com/cdn/shop/products/WebsiteImageSize_4_61b49c8e-b617-4e90-947a-f61b61c3bbbd_1024x1024@2x.png?v=1614613724" class="card-img-top" alt="Raincoat">
                         <div class="card-body d-flex flex-column">
@@ -617,7 +685,7 @@
                     </div>
                 </div>
                 <!-- Product 3: Humidifier -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card product-card shadow-sm h-100">
                         <img src="https://mistore.fi/cdn/shop/files/1_2e0612e7-a1c4-4a5b-8449-a66a4b827799_600x.jpg?v=1721830221" class="card-img-top" alt="Humidifier">
                         <div class="card-body d-flex flex-column">
@@ -633,9 +701,9 @@
                     </div>
                 </div>
                 <!-- Product 4: Portable Hand Fan -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card product-card shadow-sm h-100">
-                        <img src="https://m.media-amazon.com/images/I/71QVjKgy4UL.jpg" class="card-img-top" alt="Portable Hand Fan">
+                        <img src="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/99/6949582/1.jpg?1057" class="card-img-top" alt="Portable Hand Fan">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Portable Hand Fan</h5>
                             <p class="card-text">Stay cool on the go with our compact and rechargeable portable hand fan.</p>
@@ -649,7 +717,7 @@
                     </div>
                 </div>
                 <!-- Product 5: Rain Boots -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card product-card shadow-sm h-100">
                         <img src="https://atlas-content-cdn.pixelsquid.com/stock-images/rain-boots-G9m2Ok0-600.jpg" class="card-img-top" alt="Rain Boots">
                         <div class="card-body d-flex flex-column">
@@ -665,7 +733,7 @@
                     </div>
                 </div>
                 <!-- Product 6: Room Monitoring Sensor -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card product-card shadow-sm h-100">
                         <img src="https://static-00.iconduck.com/assets.00/gift-icon-2048x1882-1wugth41.png" class="card-img-top" alt="Room Monitoring Sensor">
                         <div class="card-body d-flex flex-column">
@@ -685,7 +753,7 @@
         </div>
 
         <!-- Checkout Section -->
-        <div class="container">
+        <div class="container" id="cart">
             <div id="checkout-section" class="mt-5">
                 <h2>Your Cart</h2>
                 <table id="cart-table" class="table">
@@ -765,6 +833,9 @@
         <a class="ki" href="contact_us.html">Contact Us</a>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     <!-- Loading Indicator -->
     <div id="loading">
         <div class="spinner"></div>
@@ -811,6 +882,9 @@
         const billModal = document.getElementById('bill-modal');
         const billModalContent = billModal.querySelector('.modal-content');
         const closeBillBtn = billModal.querySelector('.close-bill-btn');
+
+        const cartBtn = document.getElementById('cart-btn');
+        const myBtn = document.getElementById('myBtn');
 
         let confirmationCallback = null; // To store the callback function for confirmation
 
@@ -1130,6 +1204,60 @@
         cancelBtn.addEventListener('click', () => {
             hideConfirmationModal();
         });
+
+        /* ---------------- Back to Top and View Cart Button Functionality ---------------- */
+
+        // Initially hide the Top button
+        myBtn.style.display = "none";
+
+        // When the user clicks on the View Cart button
+        cartBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            const cartSection = document.getElementById('cart');
+            if (cartSection) {
+                cartSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Toggle buttons
+            cartBtn.style.display = "none";
+            myBtn.style.display = "block";
+        });
+
+        // When the user clicks on the Top button
+        myBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Toggle buttons
+            myBtn.style.display = "none";
+            cartBtn.style.display = "block";
+        });
+
+        /* ---------------- Back to Top Button Visibility ---------------- */
+
+        // Get the Back to Top button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls, execute scrollFunction
+        window.addEventListener('scroll', scrollFunction);
+
+        function scrollFunction() {
+            // Show the View Cart button if scrolled less than 20px
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                // Optionally, you can show or hide buttons based on scroll
+                // For this implementation, buttons toggle only on click
+                // So no action needed here
+            } else {
+                // Optionally, reset buttons when scrolled to top
+                // Uncomment the lines below if you want to reset buttons when scrolled to top
+                /*
+                myBtn.style.display = "none";
+                cartBtn.style.display = "block";
+                */
+            }
+        }
     </script>
 </body>
 </html>
