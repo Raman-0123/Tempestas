@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags and Title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Tempestas</title>
+    <link rel="icon" type="image/x-icon" href="favi.png">
+    
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, rgba(182, 211, 232, 0.532) 0%, rgb(173, 218, 238) 100%);
+        }
+
+        /* Navbar styles */
+        .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar.navbar-expand-lg.bg-body-tertiary {
+            height: 80px;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(155, 211, 231, 0.23) !important;
+            border-bottom: 2px solid rgba(47, 85, 173, 0.786) !important;
+        }
+
+        #logo1 {
+            height: 60px;
+            width: auto;
+            background-image: url('logo.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 2;
+        }
+
+        .goit {
+            height: 62px;
+            width: 250px;
+        }
+
+        .nav-link.active {
+            color: rgb(14, 12, 72) !important;
+        }
+
+        .nav-link {
+            color: rgb(14, 12, 72) !important;
+            font-weight: 500;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px !important;
+            text-align: center;
+            margin-right: 50px;
+        }
+
+        #me {
+            height: auto;
+            width: 200px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .btn.btn-outline-success {
+            height: 35px;
+            font-size: 13px !important;
+            border: 1px solid rgb(95, 147, 216) !important;
+            color: rgb(255, 255, 255) !important;
+            background-color: rgba(49, 60, 214, 0.918);
+            padding-right: 10px;
+            font-weight: 800;
+        }
+
+        .btn.btn-outline-success:hover {
+            background-color: rgba(24, 11, 92, 0.856) !important;
+            border: 2px solid rgb(95, 147, 216) !important;
+        }
+
+        /* Footer styles */
+        #qaz {
+            display: flex;
+            text-align: center;
+            flex-wrap: wrap;
+            background-color: #0a1045c7;
+            justify-content: space-around;
+            padding: 40px 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .help {
+            color: white;
+            margin: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .help dl {
+            margin: 5px 0;
+        }
+
+        .help .bolder {
+            text-decoration: underline;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .ni0 {
+            text-decoration: none;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .ni0:hover {
+            color: rgba(255, 217, 0, 0.749);
+            text-decoration: underline;
+        }
+
+        #jin {
+            background-color: #0a1045;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #jin a.ki {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        #jin a.ki:hover {
+            color: rgba(255, 217, 0, 0.749);
+            text-decoration: underline;
+        }
+
+        /* Media Queries for Footer */
+        @media (max-width: 768px) {
+            #qaz {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .help {
+                margin: 10px 0;
+            }
+
+            #jin a.ki {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
+        /* Loading Indicator */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #loading.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Notification Styles */
+        #notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+        }
+        .notification {
+            background-color: #444;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            min-width: 250px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideIn 0.5s forwards;
+            position: relative;
+        }
+        .notification.success {
+            background-color: rgb(0, 128, 0); /* Green */
+        }
+        .notification.error {
+            background-color: rgb(255, 0, 0); /* Red */
+        }
+        .notification.info {
+            background-color: rgb(0, 0, 255); /* Blue */
+        }
+        .notification .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Confirmation Modal Styles */
+        #confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #confirmation-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #confirmation-modal .modal-content {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: left;
+            animation: fadeIn 0.5s ease;
+            color: white;
+        }
+        #confirmation-modal .modal-content p {
+            margin-bottom: 20px;
+        }
+        #confirmation-modal .modal-content button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        #confirmation-modal .modal-content .confirm-btn {
+            background-color: rgb(0, 128, 0); /* Green */
+            color: white;
+        }
+        #confirmation-modal .modal-content .confirm-btn:hover {
+            background-color: rgb(0, 100, 0);
+            transform: scale(1.05);
+        }
+        #confirmation-modal .modal-content .cancel-btn {
+            background-color: rgb(128, 128, 128); /* Gray */
+            color: white;
+        }
+        #confirmation-modal .modal-content .cancel-btn:hover {
+            background-color: rgb(100, 100, 100);
+            transform: scale(1.05);
+        }
+
+        /* Bill Modal Styles */
+        #bill-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1003;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #bill-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #bill-modal .modal-content {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90%;
+            overflow-y: auto;
+            animation: fadeIn 0.5s ease;
+        }
+        #bill-modal .modal-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        #bill-modal .modal-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        #bill-modal .modal-content th, #bill-modal .modal-content td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+        }
+        #bill-modal .modal-content th {
+            background-color: #444;
+            color: #fff;
+        }
+        #bill-modal .modal-content tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        #bill-modal .modal-content tr:hover {
+            background-color: #ddd;
+        }
+        #bill-modal .modal-content .total-row td {
+            font-weight: bold;
+        }
+        #bill-modal .modal-content .close-bill-btn {
+            background-color: rgb(0, 128, 0); /* Green */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            margin: 0 auto;
+        }
+        #bill-modal .modal-content .close-bill-btn:hover {
+            background-color: rgb(0, 100, 0);
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-link {
+                margin-right: 20px;
+                font-size: 16px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-link {
+                margin-right: 10px;
+                font-size: 14px !important;
+            }
+        }
+
+        /* Form Styles */
+        .checkout-form {
+            background-color: rgba(0,0,0,0.2);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            box-sizing: border-box;
+            animation: fadeIn 1s ease;
+            color: white;
+        }
+
+        .checkout-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .checkout-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .checkout-form input,
+        .checkout-form select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .checkout-form .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .checkout-form .form-row .form-group {
+            flex: 1;
+        }
+
+        .checkout-form .delivery-options,
+        .checkout-form .payment-methods {
+            margin-bottom: 15px;
+        }
+
+        .checkout-form .btn-submit {
+            background-color: rgba(49, 60, 214, 0.918);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        .checkout-form .btn-submit:hover {
+            background-color: rgba(24, 11, 92, 0.856);
+            transform: scale(1.02);
+        }
+
+        /* Order Summary Styles */
+        .order-summary {
+            background-color: rgba(0,0,0,0.2);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            box-sizing: border-box;
+            animation: fadeIn 1s ease;
+            color: white;
+        }
+
+        .order-summary h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .order-summary table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .order-summary th, .order-summary td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .order-summary th {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .order-summary tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .order-summary tr:nth-child(odd) {
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .order-summary tr:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: scale(1.01);
+        }
+
+        .order-summary .total-price {
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Responsive Form */
+        @media (max-width: 768px) {
+            .checkout-form .form-row {
+                flex-direction: column;
+            }
+        }
+
+        /* Hide number input spinners */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <div class="goit">
+                    <div id="logo1"></div>
+                </div>
+                <div id="me"></div>
+                <div class="navbar-brand"></div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- Updated nav items -->
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="map.html">Maps</a></li>
+                        <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    </ul>
+                    <form class="d-flex ms-auto mt-2 mt-lg-0" role="search">
+                        <div class="button-container">
+                            <button class="btn btn-outline-success" type="button" id="btn-login">Log In</button>
+                            <button class="btn btn-outline-success" type="button" id="btn-signin">Sign In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Order Summary Section -->
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <table id="order-summary-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price (₹)</th>
+                        <th>Total (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end">
+                <h4>Total: ₹<span id="summary-total">0.00</span></h4>
+            </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="checkout-form">
+            <h2>Checkout</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" required placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" required placeholder="Doe">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+91 12345 67890">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" required placeholder="123, Main Street">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required placeholder="Mumbai">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" required placeholder="Maharashtra">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" required placeholder="India">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip Code</label>
+                        <input type="number" id="zip" name="zip" required placeholder="400001">
+                    </div>
+                </div>
+
+                <div class="delivery-options">
+                    <label>Delivery Method</label>
+                    <select id="delivery-method" name="delivery-method" required>
+                        <option value="" disabled selected>Select delivery option</option>
+                        <option value="standard">Standard Delivery (3-5 Days) (₹50)</option>
+                        <option value="express">Express Delivery (1-2 Days) (₹100)</option>
+                    </select>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="" disabled selected>Select a payment method</option>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="net-banking">Net Banking</option>
+                        <option value="cod">Cash on Delivery</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Place Order</button>
+            </form>
+        </div>
+    </main>
+    <br><br><br>
+
+    <!-- Footer -->
+    <footer id="qaz">
+        <div class="help">
+            <dl class="bolder">COMPANY</dl>
+            <dl><a class="ni0" href="#">Proven Superior Accuracy</a></dl>
+            <dl><a class="ni0" href="#">About Tempestas</a></dl>
+            <dl><a class="ni0" href="#">Digital Advertising</a></dl>
+            <dl><a class="ni0" href="#">Careers</a></dl>
+            <dl><a class="ni0" href="#">Press</a></dl>
+            <dl><a class="ni0" href="#">Articles</a></dl>
+            <dl><a class="ni0" href="#">Researchers</a></dl>
+            <dl><a class="ni0" href="#">News and Notifications</a></dl>
+        </div>
+        <div class="help">
+            <dl class="bolder">PRODUCT & SERVICES</dl>
+            <dl><a class="ni0" href="#">For Business</a></dl>
+            <dl><a class="ni0" href="#">For Partners</a></dl>
+            <dl><a class="ni0" href="#">For Advertising</a></dl>
+            <dl><a class="ni0" href="#">Tempestas APIs</a></dl>
+            <dl><a class="ni0" href="#">Tempestas Connect</a></dl>
+            <dl><a class="ni0" href="#">Real Shade</a></dl>
+            <dl><a class="ni0" href="#">RealFeel Shade</a></dl>
+        </div>
+        <div class="help">
+            <dl class="bolder">SUBSCRIPTION SERVICES</dl>
+            <dl><a class="ni0" href="#">iPhone App</a></dl>
+            <dl><a class="ni0" href="#">Android App</a></dl>
+            <dl><a class="ni0" href="#">See all Apps & Downloads</a></dl>
+            <dl><a class="ni0" href="#">More Info</a></dl>
+            <dl><a class="ni0" href="#">Delivery</a></dl>
+            <dl><a class="ni0" href="#">Travel</a></dl>
+            <dl><a class="ni0" href="#">Terms of Use</a></dl>
+        </div>
+        <div class="help">
+            <dl class="bolder">CONNECT WITH US</dl>
+            <dl><a class="ni0" href="#">Instagram</a></dl>
+            <dl><a class="ni0" href="#">Facebook</a></dl>
+            <dl><a class="ni0" href="#">YouTube</a></dl>
+            <dl><a class="ni0" href="#">Twitter</a></dl>
+            <dl><a class="ni0" href="#">Telegram</a></dl>
+            <dl><a class="ni0" href="#">LinkedIn</a></dl>
+            <dl><a class="ni0" href="#">Threads</a></dl>
+            <dl><a class="ni0" href="#">Website</a></dl>
+            <dl><a class="ni0" href="#">Reddit</a></dl>
+        </div>
+    </footer>
+
+    <footer id="jin">
+        <a class="ki" href="#">Web Accessibility</a>
+        <a class="ki" href="#">Privacy Statement</a>
+        <a class="ki" href="#">Terms of Use</a>
+        <a class="ki" href="contact_us.html">Contact Us</a>
+    </footer>
+
+    <!-- Loading Indicator -->
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal">
+        <div class="modal-content">
+            <p id="confirmation-message">Are you sure?</p>
+            <button class="confirm-btn">Yes</button>
+            <button class="cancel-btn">No</button>
+        </div>
+    </div>
+
+    <!-- Bill Modal -->
+    <div id="bill-modal">
+        <div class="modal-content">
+            <!-- Bill details will be dynamically inserted here -->
+            <button class="close-bill-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize an empty array for user orders (cart)
+        let userOrders = [];
+
+        // DOM Elements
+        const orderSummaryTableBody = document.querySelector('#order-summary-table tbody');
+        const summaryTotal = document.getElementById('summary-total');
+        const checkoutForm = document.getElementById('checkout-form');
+
+        const loading = document.getElementById('loading');
+        const notificationContainer = document.getElementById('notification-container');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const confirmationMessage = document.getElementById('confirmation-message');
+        const confirmBtn = confirmationModal.querySelector('.confirm-btn');
+        const cancelBtn = confirmationModal.querySelector('.cancel-btn');
+
+        const billModal = document.getElementById('bill-modal');
+        const billModalContent = billModal.querySelector('.modal-content');
+        const closeBillBtn = billModal.querySelector('.close-bill-btn');
+
+        let confirmationCallback = null; // To store the callback function for confirmation
+
+        /**
+         * Shows the loading indicator.
+         */
+        function showLoading() {
+            loading.classList.add('show');
+        }
+
+        /**
+         * Hides the loading indicator.
+         */
+        function hideLoading() {
+            loading.classList.remove('show');
+        }
+
+        /**
+         * Displays a notification message.
+         * @param {string} message - The message to display.
+         * @param {string} type - The type of notification ('success', 'error', 'info').
+         */
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.classList.add('notification', type);
+            notification.innerHTML = `
+                ${message}
+                <button class="close-btn">&times;</button>
+            `;
+            notificationContainer.appendChild(notification);
+
+            // Animate notification entry
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateY(0)';
+            }, 10); // Small delay to allow transition
+
+            // Remove notification on close button click
+            notification.querySelector('.close-btn').addEventListener('click', () => {
+                removeNotification(notification);
+            });
+
+            // Automatically remove notification after 5 seconds
+            setTimeout(() => {
+                removeNotification(notification);
+            }, 5000);
+        }
+
+        /**
+         * Removes a notification element with fade-out effect.
+         * @param {HTMLElement} notification - The notification element to remove.
+         */
+        function removeNotification(notification) {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                notification.remove();
+            }, 300); // Match with CSS transition duration
+        }
+
+        /**
+         * Shows the confirmation modal.
+         * @param {string} message - The confirmation message.
+         * @param {Function} callback - The callback function to execute on confirmation.
+         */
+        function showConfirmationModal(message, callback) {
+            confirmationMessage.textContent = message;
+            confirmationModal.classList.add('show');
+            confirmationCallback = callback;
+        }
+
+        /**
+         * Hides the confirmation modal.
+         */
+        function hideConfirmationModal() {
+            confirmationModal.classList.remove('show');
+            confirmationCallback = null;
+        }
+
+        /**
+         * Shows the bill modal.
+         * @param {string} billHtml - The HTML content of the bill.
+         */
+        function showBillModal(billHtml) {
+            billModalContent.innerHTML = billHtml + `
+                <button class="close-bill-btn">Close</button>
+            `;
+            billModal.classList.add('show');
+
+            // Reattach the close button event listener
+            const newCloseBtn = billModalContent.querySelector('.close-bill-btn');
+            newCloseBtn.addEventListener('click', () => {
+                hideBillModal();
+            });
+        }
+
+        /**
+         * Hides the bill modal.
+         */
+        function hideBillModal() {
+            billModal.classList.remove('show');
+        }
+
+        /**
+         * Simulates an asynchronous operation to generate the bill.
+         * @param {Object} formData - The user's checkout form data.
+         * @returns {Promise} - Resolves with the bill HTML.
+         */
+        function generateBillAsync(formData) {
+            return new Promise((resolve, reject) => {
+                showLoading();
+                // Simulate a delay (e.g., server processing time)
+                setTimeout(() => {
+                    if (userOrders.length === 0) {
+                        reject("Your cart is empty.");
+                    } else {
+                        // Extract form data
+                        const email = formData.email;
+                        const firstName = formData.firstName;
+                        const lastName = formData.lastName;
+                        const phone = formData.phone;
+                        const address = formData.address;
+                        const city = formData.city;
+                        const state = formData.state;
+                        const country = formData.country;
+                        const zip = formData.zip;
+                        const paymentMethod = formData.paymentMethod;
+                        const deliveryMethod = formData.deliveryMethod;
+
+                        // Calculate subtotal
+                        const subtotal = userOrders.reduce((acc, order) => acc + order.quantity * order.price, 0);
+                        // Calculate tax (10%)
+                        const tax = subtotal * 0.1;
+                        // Calculate delivery fee
+                        const deliveryFee = deliveryMethod === 'express' ? 100 : 50;
+                        // Calculate total
+                        const total = subtotal + tax + deliveryFee;
+
+                        // Generate bill HTML
+                        const billHtml = `
+                            <h2>Bill for ${firstName} ${lastName}</h2>
+                            <p><strong>Email:</strong> ${email}</p>
+                            <p><strong>Phone:</strong> ${phone}</p>
+                            <p><strong>Address:</strong> ${address}, ${city}, ${state}, ${country}, ${zip}</p>
+                            <p><strong>Payment Method:</strong> ${capitalizeFirstLetter(paymentMethod.replace('-', ' '))}</p>
+                            <p><strong>Delivery Method:</strong> ${deliveryMethod === 'express' ? 'Express Delivery (1-2 Days)' : 'Standard Delivery (3-5 Days)'}</p>
+                            <table>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price (₹)</th>
+                                    <th>Total (₹)</th>
+                                </tr>
+                                ${userOrders.map(order => `
+                                    <tr>
+                                        <td>${order.name}</td>
+                                        <td>${order.quantity}</td>
+                                        <td>${order.price.toFixed(2)}</td>
+                                        <td>${(order.quantity * order.price).toFixed(2)}</td>
+                                    </tr>
+                                `).join('')}
+                                <tr class="total-row">
+                                    <td colspan="3">Subtotal:</td>
+                                    <td>${subtotal.toFixed(2)}</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="3">Tax (10%):</td>
+                                    <td>${tax.toFixed(2)}</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="3">Delivery Fee:</td>
+                                    <td>${deliveryFee.toFixed(2)}</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="3">Total:</td>
+                                    <td>${total.toFixed(2)}</td>
+                                </tr>
+                            </table>
+                        `;
+                        resolve(billHtml);
+                    }
+                    hideLoading();
+                }, 1000); // 1 second delay
+            });
+        }
+
+        /**
+         * Capitalizes the first letter of each word in a string.
+         * @param {string} str - The string to capitalize.
+         * @returns {string} - The capitalized string.
+         */
+        function capitalizeFirstLetter(str) {
+            return str.replace(/\b\w/g, char => char.toUpperCase());
+        }
+
+        /**
+         * Simulates an asynchronous operation to clear the cart.
+         * @returns {Promise} - Resolves if the cart is cleared successfully.
+         */
+        function clearCartAsync() {
+            return new Promise((resolve) => {
+                showLoading();
+                setTimeout(() => {
+                    userOrders = [];
+                    resolve("Cart has been cleared.");
+                    hideLoading();
+                }, 500); // 0.5 second delay
+            });
+        }
+
+        /**
+         * Displays the current order summary.
+         */
+        function displayOrderSummary() {
+            orderSummaryTableBody.innerHTML = '';
+            let total = 0;
+
+            userOrders.forEach((order, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${order.name}</td>
+                    <td>${order.quantity}</td>
+                    <td>${order.price.toFixed(2)}</td>
+                    <td>${(order.quantity * order.price).toFixed(2)}</td>
+                `;
+
+                orderSummaryTableBody.appendChild(row);
+                total += order.quantity * order.price;
+            });
+
+            summaryTotal.textContent = total.toFixed(2);
+        }
+
+        /**
+         * Saves the cart to localStorage.
+         */
+        function saveCart() {
+            localStorage.setItem('userOrders', JSON.stringify(userOrders));
+        }
+
+        /**
+         * Loads the cart from localStorage.
+         */
+        function loadCart() {
+            const savedOrders = JSON.parse(localStorage.getItem('userOrders'));
+            if (savedOrders && Array.isArray(savedOrders)) {
+                userOrders = savedOrders;
+                displayOrderSummary();
+            }
+        }
+
+        // Load cart from localStorage on page load
+        window.addEventListener('load', () => {
+            loadCart();
+        });
+
+        /**
+         * Handles the checkout form submission.
+         * @param {Event} e - The form submission event.
+         */
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Gather form data
+            const formData = {
+                email: document.getElementById('email').value.trim(),
+                firstName: document.getElementById('first-name').value.trim(),
+                lastName: document.getElementById('last-name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                address: document.getElementById('address').value.trim(),
+                city: document.getElementById('city').value.trim(),
+                state: document.getElementById('state').value.trim(),
+                country: document.getElementById('country').value.trim(),
+                zip: document.getElementById('zip').value.trim(),
+                paymentMethod: document.getElementById('payment-method').value,
+                deliveryMethod: document.getElementById('delivery-method').value
+            };
+
+            // Simple validation (HTML5 handles required fields)
+            if (!formData.paymentMethod || !formData.deliveryMethod) {
+                showNotification("Please select a payment method and delivery option.", 'error');
+                return;
+            }
+
+            // Show confirmation modal
+            showConfirmationModal("Do you want to place this order?", () => {
+                generateBillAsync(formData)
+                    .then(billHtml => {
+                        // Display the bill in the same page using the bill modal
+                        showBillModal(billHtml);
+                        // Clear the cart after checkout
+                        clearCartAsync().then(message => {
+                            showNotification(message, 'success');
+                            displayOrderSummary();
+                            saveCart();
+                        });
+                        showNotification("Checkout successful!", 'success');
+                        // Reset the form
+                        checkoutForm.reset();
+                    })
+                    .catch(errorMessage => {
+                        showNotification(errorMessage, 'error');
+                    });
+            });
+        });
+
+        // Event listeners for confirmation modal buttons
+        confirmBtn.addEventListener('click', () => {
+            if (confirmationCallback) {
+                confirmationCallback();
+            }
+            hideConfirmationModal();
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            hideConfirmationModal();
+        });
+
+        // Event listener for closing the bill modal
+        closeBillBtn.addEventListener('click', () => {
+            hideBillModal();
+        });
+    </script>
+</body>
+</html>

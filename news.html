@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="tempe.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="favi.png">
+    <title>Tempestas - News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+
+        
+        /* Center-align images in their container */
+        .img-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically if needed */
+            width: 100%; /* Full width for responsiveness */
+        }
+
+        /* Make sure images are responsive */
+        .img-fluid {
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+        }
+html{
+    background-color: rgba(84, 180, 215, 0.509);
+}
+        body {
+            font-family: Arial, sans-serif;
+  
+        }
+
+        .card-header {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .card-body {
+            background-color: #343a40de;
+            color: black!important;
+        
+        }
+
+    
+        .hidden-content {
+            display: none;
+        }
+
+        .btn-toggle {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .additional-info {
+            font-style: italic;
+            color: #555;
+            display: none;
+        }
+        
+
+
+
+
+.container-fluid {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar.navbar-expand-lg.bg-body-tertiary {
+    height: 80px;
+    width: 100%;
+    position: sticky;
+    background-color: rgba(155, 211, 231, 0.23) !important;
+    border-bottom: 2px solid rgba(47, 85, 173, 0.786) !important;
+}
+
+
+#logo1 {
+    height: 60px;
+    width: auto;
+    background-image: url('logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.goit {
+    height: 62px;
+    width: 250px;
+}
+
+.nav-link.active {
+    color: rgb(14, 12, 72)!important;
+
+}
+
+.nav-link {
+    color:rgb(14, 12, 72)!important;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px !important;
+    text-align: center;
+    font-weight: 500!important;
+    margin-right: 50px;
+}
+
+#me{
+    height: auto;
+    width: 200px;
+}
+
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.btn.btn-outline-success {
+    height: 35px;
+    font-size: 13px !important;
+    border: 1px solid rgb(95, 147, 216) !important;
+    color: rgb(255, 255, 255) !important;
+    background-color: rgba(49, 60, 214, 0.918);
+    padding-right: 10px;
+    font-weight: 800;
+}
+
+.btn.btn-outline-success:hover {
+    background-color: rgba(0, 0, 0, 0.786);
+    color: rgb(255, 208, 0);
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 992px) {
+
+    .navbar.navbar.navbar-expand-lg.bg-body-tertiary{
+        height: 0% !important; 
+        padding-left: 0% !important; 
+        z-index: 1; 
+    }
+    #logo1{
+        display: block ;
+        margin-left: auto ;
+        margin-right: auto;
+        height: 65px;
+        width: auto;
+ 
+    }
+    .goit{
+        display: block ;
+        margin-left: auto ;
+        margin-right: auto;
+  
+    }
+    
+    #qaz{
+        font-size: 11px;
+    }    
+}
+
+
+.nav-link:hover{
+    text-decoration: rgba(173, 47, 47, 0.786) solid underline;
+    color: rgb(50, 1, 1);
+}
+.keep{
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+
+.ni0{
+    text-decoration: none;
+    color: white;
+    line-height: 0px;
+}
+.ni0:hover{
+    color: rgba(255, 217, 0, 0.749);
+    text-decoration: underline;
+}
+.bolder{
+    text-decoration: underline;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.help{
+    color: white;
+    margin: 40px;
+    }
+    #qaz{
+        height: auto;
+        width: auto;
+        display: flex;
+  background-color:#0a1045c7 ;
+        justify-content: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        z-index: -1;
+    }
+#jin{
+    height: 60px;
+    width: auto;
+    background-color: #280d04ea;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.ki{
+    text-decoration: none;
+    font-size: 13px;
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 20px;
+}
+.ki:hover{
+    color: rgba(255, 217, 0, 0.749);
+    text-decoration: underline;
+}
+
+.whitee{
+    height: 1px;
+    width: auto;
+    background-color: white;
+}
+
+#jin2{
+    height: auto;
+    width: auto;
+    background-color: #180904ea;
+    color: white;
+    text-align: center;
+}
+
+
+.fol{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+#cd{
+    height: 40px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    border: 2px solid brown;
+    background-color: hsla(0, 100%, 50%, 0.673);
+    text-decoration: none;
+    color: #ffffff;
+}
+.ko{
+    height: 40px;
+    width: auto;
+    background-color: #f5e400;
+    display: flex;
+    justify-content: center;
+    border: 2px solid brown;
+}
+
+.badge .badge-primary .m-1{
+    color: black !important;;
+}
+    </style>
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  
+          <div class="container-fluid">
+            <div class="goit">
+              <div id="logo1"></div>
+            </div>
+          <div id="me"></div>
+            <div class="navbar-brand"></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Maps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                  </ul>
+              <!-- Ensure the form is inside the collapse div for responsive behavior -->
+              <form class="d-flex ms-auto mt-2 mt-lg-0" role="search">
+                <div class="button-container">
+                  <button class="btn btn-outline-success" type="submit">Log In</button>
+                  <button class="btn btn-outline-success" type="submit">Sign In</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Main Content -->
+            <main class="col-md-8">
+                <!-- Blog Post 1 -->
+                <article class="mb-4">
+                    <h2 class="font-weight-bold">1. Understanding Climate Change</h2>
+                    <p class="text-muted">Posted on September 1, 2024 by Jane Doe</p>
+                    <div class="img-container">
+                        <img src="https://media.istockphoto.com/id/1339138376/photo/climate-change-from-drought-to-green-growth.jpg?s=612x612&w=0&k=20&c=05aOfOV32_8Ow5cgcRFV6vcKdmxvD2LHqWxiiZXi2pU=" class="img-fluid" alt="Climate Change">
+                    </div>
+                    <p class="hidden-content mt-3" id="post1">
+                        Climate change is a significant and lasting change in the Earth's climate and weather patterns. It is driven by factors such as greenhouse gas emissions, deforestation, and industrial activities. Understanding these changes is crucial for preparing for the future.
+                    </p>
+                    <div class="additional-info" id="info1">Climate change impacts all living organisms on Earth.</div>
+                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post1', 'info1', this)">&#9660; Read More</a>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="mb-4">
+                    <h2 class="font-weight-bold">2. The Impact of Pollution on Urban Areas</h2>
+                    <p class="text-muted">Posted on August 25, 2024 by John Smith</p>
+                    <div class="img-container">
+                        <img src="https://www.usatoday.com/gcdn/media/2018/08/28/USATODAY/usatsports/247WallSt.com-247WS-489035-tangshan-china.jpg?width=660&height=372&fit=crop&format=pjpg&auto=webp" class="img-fluid" alt="Urban Pollution">
+                    </div>
+                    <p class="hidden-content mt-3" id="post2">
+                        Pollution in urban areas has far-reaching effects on both the environment and public health. It includes air, water, and soil pollution, which can lead to various health issues and environmental degradation.
+                    </p>
+                    <div class="additional-info" id="info2">Pollution is a leading cause of respiratory problems in cities.</div>
+                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post2', 'info2', this)">&#9660; Read More</a>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="mb-4">
+                    <h2 class="font-weight-bold">3. Adapting to Changing Weather Patterns</h2>
+                    <p class="text-muted">Posted on August 15, 2024 by Alice Johnson</p>
+                    <div class="img-container">
+                        <img src="https://cdn.hswstatic.com/gif/now-541fed95-a28c-403c-80c1-eace48c87ee4-1210-680.jpg" class="img-fluid" alt="Changing Weather Patterns">
+                    </div>
+                    <p class="hidden-content mt-3" id="post3">
+                        As weather patterns change, it is essential to adapt and prepare for new challenges. This includes adjusting agricultural practices, enhancing disaster preparedness, and updating infrastructure to cope with extreme weather events.
+                    </p>
+                    <div class="additional-info" id="info3">Adapting to weather changes helps minimize damage to crops.</div>
+                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post3', 'info3', this)">&#9660; Read More</a>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="mb-4">
+                    <h2 class="font-weight-bold">4. The Benefits of Renewable Energy</h2>
+                    <p class="text-muted">Posted on July 20, 2024 by Michael Green</p>
+                    <div class="img-container">
+                        <img src="https://www.peakoilindia.org/wp-content/uploads/2018/11/RenewableEnergy-800x400.jpg" class="img-fluid" alt="Renewable Energy">
+                    </div>
+                    <p class="hidden-content mt-3" id="post4">
+                        Renewable energy sources, such as solar and wind, offer numerous benefits including reduced greenhouse gas emissions, decreased reliance on fossil fuels, and sustainable power generation. Embracing these technologies is key to mitigating climate change and securing a cleaner future.
+                    </p>
+                    <div class="additional-info" id="info4">Renewable energy is a sustainable power solution.</div>
+                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post4', 'info4', this)">&#9660; Read More</a>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="mb-4">
+                    <h2 class="font-weight-bold">5. Extreme Weather Events on the Rise</h2>
+                    <p class="text-muted">Posted on July 10, 2024 by Emily Clarke</p>
+                    <div class="img-container">
+                        <img src="https://dtnext-prod.s3.ap-south-1.amazonaws.com/imported/import/Articles/2020/Jun/202006151718166103_Extreme-weather-events-on-rise-in-India-Govt_SECVPF.gif" class="img-fluid" alt="Extreme Weather Events">
+                    </div>
+                    <p class="hidden-content mt-3" id="post5">
+                        Extreme weather events, such as hurricanes, floods, and heatwaves, are becoming more frequent and severe. These events pose significant risks to communities, infrastructure, and ecosystems, highlighting the need for effective response strategies and climate resilience planning.
+                    </p>
+                    <div class="additional-info" id="info5">Preparedness for extreme weather is crucial for safety.</div>
+                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post5', 'info5', this)">&#9660; Read More</a>
+                </article>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4 class="font-weight-bold">Latest News</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">New Climate Agreement Signed by Nations</li>
+                        <li class="list-group-item">Innovations in Clean Energy Technology</li>
+                        <li class="list-group-item">Rising Sea Levels: What You Need to Know</li>
+                        <li class="list-group-item">Record Heatwaves Across the Globe</li>
+                        <li class="list-group-item">Wildfires: Causes and Solutions</li>
+                    </ul>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4 class="font-weight-bold">Popular Tags</h4>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="badge badge-primary m-1">Climate</a>
+                        <a href="#" class="badge badge-primary m-1">Pollution</a>
+                        <a href="#" class="badge badge-primary m-1">Weather</a>
+                        <a href="#" class="badge badge-primary m-1">Environment</a>
+                        <a href="#" class="badge badge-primary m-1">News</a>
+                        <a href="#" class="badge badge-primary m-1">Energy</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        function toggleContent(postId, infoId, element) {
+            var content = document.getElementById(postId);
+            var info = document.getElementById(infoId);
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                info.style.display = 'none';
+                element.innerHTML = '&#9660; Read More';
+            } else {
+                content.style.display = 'block';
+                info.style.display = 'block';
+                element.innerHTML = '&#9650; Read Less';
+            }
+        }
+    </script>
+</body>
+</html>
