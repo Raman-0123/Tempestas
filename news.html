@@ -1,96 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- Meta Tags and Title -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="tempe.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/10480/10480648.png">
     <title>Tempestas - News</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/10480/10480648.png">
+    
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+    <!-- Custom CSS -->
     <style>
-        /* Center-align images in their container */
-        .img-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
+        /* Import fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-        /* Make sure images are responsive */
-        .img-fluid {
-            max-width: 100%;
-            height: auto;
-        }
-
-        html {
-            background-color: rgba(84, 180, 215, 0.509);
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, rgba(182, 211, 232, 0.532) 0%, rgb(173, 218, 238) 100%);
+            color: #183b56;
         }
 
-        .card-header {
-            background-color: #343a40;
-            color: #fff;
-        }
-
-        .card-body {
-            background-color: #343a40de;
-            color: black !important;
-        }
-
-        .hidden-content {
-            display: none;
-        }
-
-        .btn-toggle {
-            display: block;
-            margin-top: 10px;
-        }
-
-        .additional-info {
-            font-style: italic;
-            color: #555;
-            display: none;
-        }
-
-        .container-fluid {
-            height: auto;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar.navbar-expand-lg.bg-body-tertiary {
-            height: 80px;
-            width: 100%;
-            position: sticky;
-            background-color: rgba(155, 211, 231, 0.23) !important;
-            border-bottom: 2px solid rgba(47, 85, 173, 0.786) !important;
-        }
-
-        #logo1 {
+        /* Navbar styles */
+        .navbar-brand img {
             height: 60px;
             width: auto;
-            background-image: url('logo.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            z-index: 2;
         }
-
-        .goit {
-            height: 62px;
-            width: 250px;
-        }
-
-        .nav-link.active {
-            color: rgb(14, 12, 72) !important;
+        .navbar {
+            height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(155, 211, 231, 0.9) !important;
+            border-bottom: 2px solid rgba(47, 85, 173, 0.786) !important;
+            transition: background-color 0.3s ease;
         }
 
         .nav-link {
@@ -99,13 +55,8 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 18px !important;
             text-align: center;
-            font-weight: 500 !important;
-            margin-right: 50px;
-        }
-
-        #me {
-            height: auto;
-            width: 200px;
+            margin-right: 30px;
+            transition: color 0.3s ease;
         }
 
         .button-container {
@@ -115,335 +66,753 @@
             align-items: center;
         }
 
-        .btn.btn-outline-success {
-            height: 35px;
-            font-size: 13px !important;
-            border: 1px solid rgb(95, 147, 216) !important;
-            color: rgb(255, 255, 255) !important;
+        .btn-outline-success {
+            height: 45px;
+            width: 100px;
+            font-size: 13px ;
+            color: rgb(255, 255, 255) ;
             background-color: rgba(49, 60, 214, 0.918);
             padding-right: 10px;
             font-weight: 800;
+            transition: background-color 0.3s ease, border 0.3s ease;
         }
 
-        .btn.btn-outline-success:hover {
-            background-color: rgba(0, 0, 0, 0.786);
-            color: rgb(255, 208, 0);
+        .btn-outline-success:hover {
+            background-color: rgba(24, 11, 92, 0.856) ;
+            color: #fff ;
         }
 
-        @media (max-width: 768px) {
-            .navbar-nav {
-                text-align: center;
-            }
-
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-                margin-top: 10px;
-            }
+        /* Main content styles */
+        main {
+            padding: 40px 20px;
+            margin-top: 80px; /* Adjust based on navbar height */
         }
 
-        @media only screen and (max-width: 992px) {
-            .navbar.navbar.navbar-expand-lg.bg-body-tertiary {
-                height: 0% !important;
-                padding-left: 0% !important;
-                z-index: 1;
-            }
-
-            #logo1 {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                height: 65px;
-                width: auto;
-            }
-
-            .goit {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            #qaz {
-                font-size: 11px;
-            }
+        /* Heading */
+        main h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #183b56;
         }
 
-        .nav-link:hover {
-            text-decoration: rgba(173, 47, 47, 0.786) solid underline;
-            color: rgb(50, 1, 1);
-        }
-
-        .keep {
-            height: auto;
-            max-width: 100%;
+        /* Search Bar Styles */
+        .search-bar {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            margin-bottom: 30px;
         }
 
-        .ni0 {
-            text-decoration: none;
+        .search-bar form {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar label {
+            display: none; /* Visually hidden but accessible */
+        }
+
+        .news-input {
+            flex: 1;
+            height: 45px;
+            padding: 0 20px;
+            border-radius: 25px 0 0 25px;
+            border: 2px solid #bbd0e2;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .news-input:focus {
+            border-color: #1d69a3;
+            outline: none;
+        }
+
+        .search-button {
+            height: 45px;
+            padding: 0 25px;
+            border-radius: 0 25px 25px 0;
+            background-color: #1d69a3; /* Defined as --accent-color */
             color: white;
-            line-height: 0px;
+            border: none;
+            cursor: pointer;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
 
-        .ni0:hover {
-            color: rgba(255, 217, 0, 0.749);
-            text-decoration: underline;
+        .search-button:hover {
+            background-color: #183b56; /* Defined as --accent-color-dark */
         }
 
-        .bolder {
-            text-decoration: underline;
-            margin-bottom: 15px;
+        /* Loader Styles */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #loading.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #loading .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Notification Styles */
+        #notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+        }
+        .notification {
+            background-color: #444;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            min-width: 250px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideIn 0.5s forwards;
+            position: relative;
+        }
+        .notification.success {
+            background-color: rgb(0, 128, 0); /* Green */
+        }
+        .notification.error {
+            background-color: rgb(255, 0, 0); /* Red */
+        }
+        .notification.info {
+            background-color: rgb(0, 0, 255); /* Blue */
+        }
+        .notification .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Card Styles */
+        .card {
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: #183b56;
             font-weight: 600;
+        }
+
+        .news-source {
+            margin-bottom: 10px;
+            color: #577592;
+            font-size: 0.9rem;
+        }
+
+        .news-desc {
+            flex-grow: 1;
+            color: #577592;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Footer Styles */
+        footer#qaz {
+            display: flex;
+            text-align: center;
+            flex-wrap: wrap;
+            background-color: #0a1045c7;
+            justify-content: space-around;
+            padding: 40px 0;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         .help {
             color: white;
-            margin: 40px;
+            margin: 20px;
+            flex: 1;
+            min-width: 200px;
         }
 
-        #qaz {
-            height: auto;
-            width: auto;
-            display: flex;
-            background-color: #0a1045c7;
-            justify-content: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            z-index: -1;
+        .help dl {
+            margin: 5px 0;
         }
 
-        #jin {
-            height: 60px;
-            width: auto;
-            background-color: #280d04ea;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        .help .bolder {
+            text-decoration: underline;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 18px;
         }
 
-        .ki {
+        .help a.ni0 {
             text-decoration: none;
-            font-size: 13px;
             color: white;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            margin-left: 20px;
+            line-height: 1.5;
         }
 
-        .ki:hover {
+        .help a.ni0:hover {
             color: rgba(255, 217, 0, 0.749);
             text-decoration: underline;
         }
 
-        .whitee {
-            height: 1px;
-            width: auto;
-            background-color: white;
-        }
-
-        #jin2 {
-            height: auto;
-            width: auto;
-            background-color: #180904ea;
+        footer#jin {
+            background-color: #0a1045;
             color: white;
             text-align: center;
+            padding: 20px 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
-        .fol {
-            height: auto;
-            width: auto;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-
-        #cd {
-            height: 40px;
-            width: auto;
-            display: flex;
-            justify-content: center;
-            border: 2px solid brown;
-            background-color: hsla(0, 100%, 50%, 0.673);
+        footer#jin a.ki {
+            color: white;
             text-decoration: none;
-            color: #ffffff;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.3s ease;
         }
 
-        .ko {
-            height: 40px;
-            width: auto;
-            background-color: #f5e400;
+        footer#jin a.ki:hover {
+            color: rgba(255, 217, 0, 0.749);
+            text-decoration: underline;
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            footer#qaz {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .help {
+                margin: 10px 0;
+            }
+
+            footer#jin a.ki {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
+        /* Confirmation Modal Styles */
+        #confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
             display: flex;
+            align-items: center;
             justify-content: center;
-            border: 2px solid brown;
+            z-index: 1003;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #confirmation-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #confirmation-modal .modal-content {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+            color: white;
+        }
+        #confirmation-modal .modal-content p {
+            margin-bottom: 20px;
+        }
+        #confirmation-modal .modal-content button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        #confirmation-modal .modal-content .confirm-btn {
+            background-color: rgb(0, 128, 0); /* Green */
+            color: white;
+        }
+        #confirmation-modal .modal-content .confirm-btn:hover {
+            background-color: rgb(0, 100, 0);
+            transform: scale(1.05);
+        }
+        #confirmation-modal .modal-content .cancel-btn {
+            background-color: rgb(128, 128, 128); /* Gray */
+            color: white;
+        }
+        #confirmation-modal .modal-content .cancel-btn:hover {
+            background-color: rgb(100, 100, 100);
+            transform: scale(1.05);
         }
 
-        .badge .badge-primary .m-1 {
-            color: black !important;
+        /* Notification Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-link {
+                margin-right: 15px;
+                font-size: 16px !important;
+            }
+
+            .btn-outline-success {
+                height: 30px;
+                font-size: 12px !important;
+            }
+
+            .search-button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            main h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Additional Custom Styles */
+        :root {
+            --accent-color: #1d69a3;
+            --accent-color-dark: #183b56;
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <div class="goit">
-                    <div id="logo1"></div>
-                </div>
-                <div id="me"></div>
-                <div class="navbar-brand"></div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="map.html">Maps</a></li>
-                        <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                    </ul>
-                    <!-- Ensure the form is inside the collapse div for responsive behavior -->
-                    <form class="d-flex ms-auto mt-2 mt-lg-0" role="search">
-                        <div class="button-container">
-                            <button class="btn btn-outline-success" type="submit">Log In</button>
-                            <button class="btn btn-outline-success" type="submit">Sign In</button>
-                        </div>
-                    </form>
+    <!-- Header -->
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!-- Navbar Brand with Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="Company Logo">
+            </a>
+            
+            <!-- Toggler for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Links and Authentication Buttons -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Updated nav items with Bootstrap spacing utilities -->
+                    <li class="nav-item"><a class="nav-link active me-3" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link me-3" href="about_us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link me-3" href="map.html">Maps</a></li>
+                    <li class="nav-item"><a class="nav-link me-3" href="notes.html">Notes</a></li>
+                    <li class="nav-item"><a class="nav-link me-3" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link me-3" href="shop.html">Shop</a></li>
+                </ul>
+                <div class="button-container">
+                    <button class="btn btn-outline-success" type="button" id="btn-login">Log In</button>
+                    <button class="btn btn-outline-success" type="button" id="btn-signin">Sign In</button>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+    
 
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Main Content -->
-            <main class="col-md-8">
-                <!-- Blog Post 1 -->
-                <article class="mb-4">
-                    <h2 class="font-weight-bold">1. Understanding Climate Change</h2>
-                    <p class="text-muted">Posted on September 1, 2024 by Jane Doe</p>
-                    <div class="img-container">
-                        <img src="https://media.istockphoto.com/id/1339138376/photo/climate-change-from-drought-to-green-growth.jpg?s=612x612&w=0&k=20&c=05aOfOV32_8Ow5cgcRFV6vcKdmxvD2LHqWxiiZXi2pU=" class="img-fluid" alt="Climate Change">
-                    </div>
-                    <p class="hidden-content mt-3" id="post1">
-                        Climate change is a significant and lasting change in the Earth's climate and weather patterns. It is driven by factors such as greenhouse gas emissions, deforestation, and industrial activities. Understanding these changes is crucial for preparing for the future.
-                    </p>
-                    <div class="additional-info" id="info1">Climate change impacts all living organisms on Earth.</div>
-                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post1', 'info1', this)">&#9660; Read More</a>
-                </article>
+    <!-- Main Content -->
+    <main>
+        <!-- Heading -->
+        <h1 class="text-center mb-4">Latest News</h1>
 
-                <!-- Blog Post 2 -->
-                <article class="mb-4">
-                    <h2 class="font-weight-bold">2. The Impact of Pollution on Urban Areas</h2>
-                    <p class="text-muted">Posted on August 25, 2024 by John Smith</p>
-                    <div class="img-container">
-                        <img src="https://www.usatoday.com/gcdn/media/2018/08/28/USATODAY/usatsports/247WallSt.com-247WS-489035-tangshan-china.jpg?width=660&height=372&fit=crop&format=pjpg&auto=webp" class="img-fluid" alt="Urban Pollution">
-                    </div>
-                    <p class="hidden-content mt-3" id="post2">
-                        Pollution in urban areas has far-reaching effects on both the environment and public health. It includes air, water, and soil pollution, which can lead to various health issues and environmental degradation.
-                    </p>
-                    <div class="additional-info" id="info2">Pollution is a leading cause of respiratory problems in cities.</div>
-                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post2', 'info2', this)">&#9660; Read More</a>
-                </article>
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <form class="d-flex" role="search" id="search-form" onsubmit="event.preventDefault(); searchButton.click();">
+                <label for="search-text" class="visually-hidden">Search</label>
+                <input id="search-text" type="text" class="form-control me-2 news-input" placeholder="Search for news (e.g., Science)" aria-label="Search">
+                <button id="search-button" class="btn btn-outline-success search-button" type="button">Search</button>
+            </form>
+        </div>
 
-                <!-- Blog Post 3 -->
-                <article class="mb-4">
-                    <h2 class="font-weight-bold">3. Adapting to Changing Weather Patterns</h2>
-                    <p class="text-muted">Posted on August 15, 2024 by Alice Johnson</p>
-                    <div class="img-container">
-                        <img src="https://cdn.hswstatic.com/gif/now-541fed95-a28c-403c-80c1-eace48c87ee4-1210-680.jpg" class="img-fluid" alt="Changing Weather Patterns">
-                    </div>
-                    <p class="hidden-content mt-3" id="post3">
-                        As weather patterns change, it is essential to adapt and prepare for new challenges. This includes adjusting agricultural practices, enhancing disaster preparedness, and updating infrastructure to cope with extreme weather events.
-                    </p>
-                    <div class="additional-info" id="info3">Adapting to weather changes helps minimize damage to crops.</div>
-                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post3', 'info3', this)">&#9660; Read More</a>
-                </article>
+        <!-- Loader -->
+        <div id="loading">
+            <div class="spinner"></div>
+        </div>
 
-                <!-- Blog Post 4 -->
-                <article class="mb-4">
-                    <h2 class="font-weight-bold">4. The Benefits of Renewable Energy</h2>
-                    <p class="text-muted">Posted on July 20, 2024 by Michael Green</p>
-                    <div class="img-container">
-                        <img src="https://www.peakoilindia.org/wp-content/uploads/2018/11/RenewableEnergy-800x400.jpg" class="img-fluid" alt="Renewable Energy">
-                    </div>
-                    <p class="hidden-content mt-3" id="post4">
-                        Renewable energy sources, such as solar and wind, offer numerous benefits including reduced greenhouse gas emissions, decreased reliance on fossil fuels, and sustainable power generation. Embracing these technologies is key to mitigating climate change and securing a cleaner future.
-                    </p>
-                    <div class="additional-info" id="info4">Renewable energy is a sustainable power solution.</div>
-                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post4', 'info4', this)">&#9660; Read More</a>
-                </article>
+        <!-- Notification Container -->
+        <div id="notification-container"></div>
 
-                <!-- Blog Post 5 -->
-                <article class="mb-4">
-                    <h2 class="font-weight-bold">5. Extreme Weather Events on the Rise</h2>
-                    <p class="text-muted">Posted on July 10, 2024 by Emily Clarke</p>
-                    <div class="img-container">
-                        <img src="https://dtnext-prod.s3.ap-south-1.amazonaws.com/imported/import/Articles/2020/Jun/202006151718166103_Extreme-weather-events-on-rise-in-India-Govt_SECVPF.gif" class="img-fluid" alt="Extreme Weather Events">
-                    </div>
-                    <p class="hidden-content mt-3" id="post5">
-                        Extreme weather events, such as hurricanes, floods, and heatwaves, are becoming more frequent and severe. These events pose significant risks to communities, infrastructure, and ecosystems, highlighting the need for effective response strategies and climate resilience planning.
-                    </p>
-                    <div class="additional-info" id="info5">Preparedness for extreme weather is crucial for safety.</div>
-                    <a href="#" class="btn btn-primary btn-toggle" onclick="toggleContent('post5', 'info5', this)">&#9660; Read More</a>
-                </article>
-            </main>
+        <!-- News Cards Container -->
+        <div class="cards-container" id="cards-container">
+            <!-- News Cards will be dynamically inserted here -->
+        </div>
+    </main>
 
-            <!-- Sidebar -->
-            <aside class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4 class="font-weight-bold">Latest News</h4>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">New Climate Agreement Signed by Nations</li>
-                        <li class="list-group-item">Innovations in Clean Energy Technology</li>
-                        <li class="list-group-item">Rising Sea Levels: What You Need to Know</li>
-                        <li class="list-group-item">Record Heatwaves Across the Globe</li>
-                        <li class="list-group-item">Wildfires: Causes and Solutions</li>
-                    </ul>
-                </div>
+    <!-- Footer -->
+    <footer id="qaz">
+        <div class="help">
+            <dl class="bolder">COMPANY</dl>
+            <dl><a class="ni0" href="#">Proven Superior Accuracy</a></dl>
+            <dl><a class="ni0" href="#">About Tempestas</a></dl>
+            <dl><a class="ni0" href="#">Digital Advertising</a></dl>
+            <dl><a class="ni0" href="#">Careers</a></dl>
+            <dl><a class="ni0" href="#">Press</a></dl>
+            <dl><a class="ni0" href="#">Articles</a></dl>
+            <dl><a class="ni0" href="#">Researchers</a></dl>
+            <dl><a class="ni0" href="#">News and Notifications</a></dl>
+        </div>
+        <div class="help">
+            <dl class="bolder">PRODUCT & SERVICES</dl>
+            <dl><a class="ni0" href="#">For Business</a></dl>
+            <dl><a class="ni0" href="#">For Partners</a></dl>
+            <dl><a class="ni0" href="#">For Advertising</a></dl>
+            <dl><a class="ni0" href="#">Tempestas APIs</a></dl>
+            <dl><a class="ni0" href="#">Tempestas Connect</a></dl>
+            <dl><a class="ni0" href="#">Real Shade</a></dl>
+            <dl><a class="ni0" href="#">RealFeel Shade</a></dl>
+        </div>
+        <div class="help">
+            <dl class="bolder">SUBSCRIPTION SERVICES</dl>
+            <dl><a class="ni0" href="#">iPhone App</a></dl>
+            <dl><a class="ni0" href="#">Android App</a></dl>
+            <dl><a class="ni0" href="#">See all Apps & Downloads</a></dl>
+            <dl><a class="ni0" href="#">More Info</a></dl>
+            <dl><a class="ni0" href="#">Delivery</a></dl>
+            <dl><a class="ni0" href="#">Travel</a></dl>
+            <dl><a class="ni0" href="#">Terms of Use</a></dl>
+        </div>
+        <div class="help">
+            <dl class="bolder">CONNECT WITH US</dl>
+            <dl><a class="ni0" href="#">Instagram</a></dl>
+            <dl><a class="ni0" href="#">Facebook</a></dl>
+            <dl><a class="ni0" href="#">YouTube</a></dl>
+            <dl><a class="ni0" href="#">Twitter</a></dl>
+            <dl><a class="ni0" href="#">Telegram</a></dl>
+            <dl><a class="ni0" href="#">LinkedIn</a></dl>
+            <dl><a class="ni0" href="#">Threads</a></dl>
+            <dl><a class="ni0" href="#">Website</a></dl>
+            <dl><a class="ni0" href="#">Reddit</a></dl>
+        </div>
+    </footer>
 
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4 class="font-weight-bold">Popular Tags</h4>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" class="badge badge-primary m-1">Climate</a>
-                        <a href="#" class="badge badge-primary m-1">Pollution</a>
-                        <a href="#" class="badge badge-primary m-1">Weather</a>
-                        <a href="#" class="badge badge-primary m-1">Environment</a>
-                        <a href="#" class="badge badge-primary m-1">News</a>
-                        <a href="#" class="badge badge-primary m-1">Energy</a>
-                    </div>
-                </div>
-            </aside>
+    <footer id="jin">
+        <a class="ki" href="#">Web Accessibility</a>
+        <a class="ki" href="#">Privacy Statement</a>
+        <a class="ki" href="#">Terms of Use</a>
+        <a class="ki" href="contact_us.html">Contact Us</a>
+    </footer>
+
+    <!-- Template for News Cards -->
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" class="news-img">
+            </div>
+            <div class="card-content">
+                <h3 class="news-title">This is the Title</h3>
+                <h6 class="news-source">Source Name · Date</h6>
+                <p class="news-desc">This is a brief description of the news article.</p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal">
+        <div class="modal-content">
+            <p id="confirmation-message">Are you sure?</p>
+            <button class="confirm-btn">Yes</button>
+            <button class="cancel-btn">No</button>
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom JS -->
+    <!-- JavaScript for News Functionality -->
     <script>
-        function toggleContent(postId, infoId, element) {
-            var content = document.getElementById(postId);
-            var info = document.getElementById(infoId);
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
-                info.style.display = 'none';
-                element.innerHTML = '&#9660; Read More';
-            } else {
-                content.style.display = 'block';
-                info.style.display = 'block';
-                element.innerHTML = '&#9650; Read Less';
+        const API_KEY = "9d4d7f3138cc49faa95dde0b3f2ad6d7";
+        const url = "https://newsapi.org/v2/everything?q=";
+
+        // DOM Elements
+        const searchButton = document.getElementById("search-button");
+        const searchText = document.getElementById("search-text");
+        const cardsContainer = document.getElementById("cards-container");
+        const loading = document.getElementById('loading');
+        const notificationContainer = document.getElementById('notification-container');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const confirmationMessage = document.getElementById('confirmation-message');
+        const confirmBtn = confirmationModal.querySelector('.confirm-btn');
+        const cancelBtn = confirmationModal.querySelector('.cancel-btn');
+
+        let confirmationCallback = null; // To store the callback function for confirmation
+
+        /**
+         * Shows the loading indicator.
+         */
+        function showLoading() {
+            loading.classList.add('show');
+        }
+
+        /**
+         * Hides the loading indicator.
+         */
+        function hideLoading() {
+            loading.classList.remove('show');
+        }
+
+        /**
+         * Displays a notification message.
+         * @param {string} message - The message to display.
+         * @param {string} type - The type of notification ('success', 'error', 'info').
+         */
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.classList.add('notification', type);
+            notification.innerHTML = `
+                ${message}
+                <button class="close-btn">&times;</button>
+            `;
+            notificationContainer.appendChild(notification);
+
+            // Animate notification entry
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateY(0)';
+            }, 10); // Small delay to allow transition
+
+            // Remove notification on close button click
+            notification.querySelector('.close-btn').addEventListener('click', () => {
+                removeNotification(notification);
+            });
+
+            // Automatically remove notification after 5 seconds
+            setTimeout(() => {
+                removeNotification(notification);
+            }, 5000);
+        }
+
+        /**
+         * Removes a notification element with fade-out effect.
+         * @param {HTMLElement} notification - The notification element to remove.
+         */
+        function removeNotification(notification) {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                notification.remove();
+            }, 300); // Match with CSS transition duration
+        }
+
+        /**
+         * Shows the confirmation modal.
+         * @param {string} message - The confirmation message.
+         * @param {Function} callback - The callback function to execute on confirmation.
+         */
+        function showConfirmationModal(message, callback) {
+            confirmationMessage.textContent = message;
+            confirmationModal.classList.add('show');
+            confirmationCallback = callback;
+        }
+
+        /**
+         * Hides the confirmation modal.
+         */
+        function hideConfirmationModal() {
+            confirmationModal.classList.remove('show');
+            confirmationCallback = null;
+        }
+
+        // Event listeners for confirmation modal buttons
+        confirmBtn.addEventListener('click', () => {
+            if (confirmationCallback) {
+                confirmationCallback();
+            }
+            hideConfirmationModal();
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            hideConfirmationModal();
+        });
+
+        /**
+         * Shows the loader and hides the content.
+         */
+        function startLoading() {
+            showLoading();
+            cardsContainer.style.display = 'none';
+        }
+
+        /**
+         * Hides the loader and shows the content.
+         */
+        function stopLoading() {
+            hideLoading();
+            cardsContainer.style.display = 'flex';
+        }
+
+        /**
+         * Fetches news articles based on the query.
+         * @param {string} query - The search query.
+         */
+        async function fetchNews(query) {
+            if (!query) {
+                showNotification("Please enter a search term.", 'error');
+                return;
+            }
+
+            startLoading();
+
+            try {
+                const res = await fetch(${url}${encodeURIComponent(query)}&apiKey=${API_KEY});
+                if (!res.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const data = await res.json();
+                bindData(data.articles);
+            } catch (error) {
+                console.error("Error fetching news:", error);
+                showNotification("Failed to fetch news. Please try again later.", 'error');
+            } finally {
+                stopLoading();
             }
         }
+
+        /**
+         * Binds the fetched articles to the DOM.
+         * @param {Array} articles - The array of news articles.
+         */
+        function bindData(articles) {
+            cardsContainer.innerHTML = ""; // Clear existing content
+
+            if (!articles || articles.length === 0) {
+                cardsContainer.innerHTML = "<p class='text-center'>No news articles found.</p>";
+                return;
+            }
+
+            // Iterate through the articles and create cards
+            articles.forEach((article) => {
+                if (!article.urlToImage) return; // Skip if no image
+                const cardClone = document.getElementById('template-news-card').content.cloneNode(true);
+                fillDataInCard(cardClone, article);
+                cardsContainer.appendChild(cardClone);
+            });
+        }
+
+        /**
+         * Fills the data into the news card template.
+         * @param {DocumentFragment} cardClone - The cloned card template.
+         * @param {Object} article - The news article data.
+         */
+        function fillDataInCard(cardClone, article) {
+            const newsImg = cardClone.querySelector(".news-img");
+            const newsTitle = cardClone.querySelector(".news-title");
+            const newsSource = cardClone.querySelector(".news-source");
+            const newsDesc = cardClone.querySelector(".news-desc");
+
+            // Populate the card with article data
+            newsImg.src = article.urlToImage;
+            newsImg.alt = article.title;
+            newsTitle.textContent = article.title;
+            newsDesc.textContent = article.description || "No description available.";
+            const date = new Date(article.publishedAt).toLocaleString("en-US", {
+                timeZone: "Asia/Jakarta",
+            });
+            newsSource.textContent = ${article.source.name} · ${date};
+
+            // Add click event to open the article in a new tab
+            cardClone.querySelector('.card').addEventListener("click", () => {
+                window.open(article.url, "_blank");
+            });
+        }
+
+        // Search functionality
+        searchButton.addEventListener("click", () => {
+            const query = searchText.value.trim();
+            fetchNews(query);
+        });
+
+        // Add an event listener to detect Enter key press
+        searchText.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent default form submission behavior
+                searchButton.click();
+            }
+        });
+
+        // Initial fetch on page load
+        window.addEventListener("load", () => {
+            fetchNews("climate OR weather OR environment");
+        });
     </script>
 </body>
 </html>
