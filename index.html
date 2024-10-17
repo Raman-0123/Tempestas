@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tempestas</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/10480/10480648.png">
+    <link rel="icon" type="image/x-icon" href="favi.png">
     
     <!-- External CSS and Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -305,7 +305,6 @@
             animation-delay: 1.5s;
         }
 
-        /* Keyframes for animations */
         @keyframes slideInLeft {
             from {
                 transform: translateX(-100%);
@@ -345,10 +344,11 @@
                 opacity: 0;
             }
         }
+ 
 
-        /* Media Queries for Mobile Devices */
-        @media only screen and (max-width: 768px) {
-            .container {
+
+@media only screen and (max-width: 768px) {
+    .container {
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
@@ -359,7 +359,18 @@
                 height: auto; /* Remove fixed height */
             }
 
-            .weather-input,
+            .input-group{
+                height: 50px;
+
+
+            }
+            .weather-input{
+                width: 90%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 20px;
+                position: static;
+            }
             .weather-output {
                 width: 90%;
                 height: auto;
@@ -369,8 +380,104 @@
             }
 
             .input-group {
+                width: 68%;
                 flex-direction: column;
                 align-items: stretch;
+            }
+
+            .input-group input {
+                margin-bottom: 10px;
+            }
+
+            .input-group i {
+                margin: 0;
+            }
+
+            .weather-icon {
+
+                text-align: center;
+            }
+
+            .heighlight {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .heighlight div {
+                height: auto;
+                padding: 15px;
+            }
+
+        .img{
+            width: 100%;
+            height: 100%;
+        }
+        .city{
+            margin-bottom: 15px;
+        }
+        .llb {
+            height: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 40px;
+        }
+
+  
+
+}
+
+@media only screen and (max-width: 480px) {
+    /* Further adjustments for smaller screens */
+    .weather-input,
+    .weather-output {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+#userLocation{
+    width:80%;
+    height: 100%;
+}
+
+    .input-group i {
+        font-size: 18px;
+    }
+
+    .heighlight {
+        grid-template-columns: 1fr; /* 1 column for very small screens */
+        gap: 8px;
+    }
+
+    .heighlight i {
+        font-size: 20px;
+    }
+
+    .heighlight div h1 {
+        font-size: 1rem;
+    }
+
+    .temperature {
+        font-size: 2rem;
+    }
+}
+
+
+
+    /* Updated Media Queries for Mobile Devices */
+@media only screen and (max-width: 768px) {
+
+    .navbar.navbar-expand-lg.bg-body-tertiary {
+        height: auto;
+        position: relative;
+        background-color: rgba(155, 211, 231, 0.95) !important; /* Increased opacity for visibility */
+        z-index: 1000; /* Ensure it stays on top */
+    }
+            .input-group {
+                flex-direction: column;
+                align-items: stretch;
+                height: 50px;
             }
 
             .input-group input {
@@ -395,39 +502,64 @@
                 height: auto;
                 padding: 15px;
             }
-        }
 
-        @media only screen and (max-width: 480px) {
-            .weather-input,
-            .weather-output {
-                width: 100%;
-            }
+    .navbar-toggler {
+        margin-right: 10px; /* Add margin for better spacing */
+    }
 
-            .input-group input {
-                font-size: 14px;
-                padding: 8px 10px;
-            }
+    .collapse.navbar-collapse {
+        background-color: rgba(155, 211, 231, 0.95); /* Matching background for mobile menu */
+    }
 
-            .input-group .fa-search {
-                font-size: 18px;
-            }
+    .nav-item {
+        text-align: center;
+        padding: 10px 0;
+    }
 
-            .heighlight {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 10px;
-            }
+    .btn.btn-outline-success {
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 10px; /* Add space between buttons */
+    }
 
-            .heighlight i {
-                font-size: 24px;
-            }
+    .button-container {
+        flex-direction: column;
+        gap: 0; /* Remove gap */
+    }
+}
 
-            .heighlight div h1 {
-                font-size: 1.2rem;
-            }
-        }
+@media only screen and (max-width: 480px) {
+    .navbar.navbar-expand-lg.bg-body-tertiary {
+        height: auto;
+        position: relative;
+        background-color: rgba(155, 211, 231, 0.98) !important; /* Ensure header is visible */
+        z-index: 1000;
+    }
 
-        /* Footer styles */
-        #qaz {
+    .navbar-toggler {
+        margin-right: 10px;
+    }
+
+    .collapse.navbar-collapse {
+        background-color: rgba(155, 211, 231, 0.98);
+    }
+
+    .nav-item {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .btn.btn-outline-success {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+#qaz {
             display: flex;
             text-align: center;
             flex-wrap: wrap;
@@ -485,7 +617,7 @@
             text-decoration: underline;
         }
 
-        /* Media Queries for Footer */
+
         @media (max-width: 768px) {
             #qaz {
                 flex-direction: column;
@@ -655,10 +787,10 @@
     </footer>
 
     <footer id="jin">
-        <a class="ki" href="#">Web Accessibility</a>
-        <a class="ki" href="#">Privacy Statement</a>
-        <a class="ki" href="#">Terms of Use</a>
-        <a class="ki" href="contact_us.html">Contact Us</a>
+        <a class="ki" href="#">Web Accessibility</a><hr>
+        <a class="ki" href="#">Privacy Statement</a><hr>
+        <a class="ki" href="#">Terms of Use</a><hr>
+        <a class="ki" href="contact_us.html">Contact Us</a><hr>
     </footer>
 
     <!-- JavaScript -->
