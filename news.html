@@ -733,7 +733,7 @@
             startLoading();
 
             try {
-                const res = await fetch(${url}${encodeURIComponent(query)}&apiKey=${API_KEY});
+                const res = `await fetch(${url}${encodeURIComponent(query)}&apiKey=${API_KEY})`;
                 if (!res.ok) {
                     throw new Error("Network response was not ok");
                 }
@@ -787,7 +787,7 @@
             const date = new Date(article.publishedAt).toLocaleString("en-US", {
                 timeZone: "Asia/Jakarta",
             });
-            newsSource.textContent = ${article.source.name} · ${date};
+            newsSource.textContent =`${article.source.name} · ${date}`;
 
             // Add click event to open the article in a new tab
             cardClone.querySelector('.card').addEventListener("click", () => {
