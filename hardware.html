@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS IoT Data Display</title>
+
+    <!-- Include AWS SDK for JavaScript -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.788.0.min.js"></script>
+
+    <!-- Include AWS IoT Device SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/aws-iot-device-sdk@2.3.0/dist/aws-iot-device-sdk.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <h1>Sensor Data from AWS IoT</h1>
+
+    <div id="sensor-data">
+        <p><strong>Humidity:</strong> <span id="humidity">Loading...</span></p>
+        <p><strong>Temperature:</strong> <span id="temperature">Loading...</span></p>
+        <p><strong>Gas Concentration:</strong> <span id="gas">Loading...</span></p>
+        <p><strong>Pressure:</strong> <span id="pressure">Loading...</span></p>
+    </div>
+
+    <script>
+        // Unique client ID for this connection (e.g., use session id or random string)
+        const clientId = 'web-client-' + Math.floor(Math.random() * 1000000);
+        console.log("Using client ID: " + clientId);  // Log the client ID to check
+
+        // AWS IoT Core endpoint (replace with your own endpoint)
+        const endpoint = 'a23m8aa94xcpk-ats.iot.us-east-1.amazonaws.com';  // Replace with your AWS IoT endpoint
+        console.log("Using endpoint: " + endpoint);  // Log the endpoint to check
+
+        // AWS region (replace with your own region)
+        const region = 'us-east-1';  // Replace with your AWS region
+
+        // The topic to subscribe to
+        const topic = 'esp8266/pub'; // Topic where your device is publishing
+        console.log("Subscribing to topic: " + topic);  // Log the topic to check
+
+        // Set up the device using AWS IoT Device SDK
+        const device = new AWS.IotData({
+            endpoint: endpoint,
+            region: region,
+            clientId: clientId,
+            protocol: 'wss',  // Use WebSocket
+            keepalive: 60
+        });
+
+        // Handle the connection
+        device.on('connect', function () {
+            console.log('Connected to AWS IoT successfully');
+            device.subscribe(topic, function (err) {
+                if (err) {
+                    console.error('Subscription error:', err);  // Log subscription error
+                } else {
+                    console.log(`Successfully subscribed to topic: ${topic}`);  // Log successful subscription
+                }
+            });
+        });
+
+        // When a new message is received
+        device.on('message', function (topic, payload) {
+            console.log('Message received on topic:', topic);  // Log which topic the message is from
+            console.log('Raw message payload:', payload.toString());  // Log raw message for debugging
+
+            try {
+                // Parse the message
+                const message = JSON.parse(payload.toString());
+                console.log('Parsed message:', message);  // Log the parsed message
+
+                // Ensure the message has the correct structure
+                if (message.humidity && message.temperature && message.gas && message.pressure) {
+                    console.log('Message structure is correct. Updating the UI...');
+                    document.getElementById('humidity').textContent = message.humidity;
+                    document.getElementById('temperature').textContent = message.temperature;
+                    document.getElementById('gas').textContent = message.gas;
+                    document.getElementById('pressure').textContent = message.pressure;
+                } else {
+                    console.error('Message structure is incorrect or missing fields', message);
+                }
+            } catch (error) {
+                console.error('Error parsing message:', error);  // Log any parsing errors
+            }
+        });
+
+        // Log any connection errors
+        device.on('error', function (error) {
+            console.error('Connection error:', error);
+        });
+
+    </script>
+
+</body>
+</html>
