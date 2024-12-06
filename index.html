@@ -348,7 +348,7 @@
  
 
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 1200px) {
     .container {
                 flex-direction: column;
                 align-items: center;
@@ -430,7 +430,7 @@
 
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 1200px) {
     /* Further adjustments for smaller screens */
     .weather-input,
     .weather-output {
@@ -468,7 +468,7 @@
 
 
     /* Updated Media Queries for Mobile Devices */
-@media only screen and (max-width: 768px) {
+    @media (max-width: 1200px) {
 
     .navbar.navbar-expand-lg.bg-body-tertiary {
         height: auto;
@@ -549,7 +549,7 @@
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 1200px) {
     .navbar.navbar-expand-lg.bg-body-tertiary {
         height: auto;
         position: relative;
@@ -640,7 +640,7 @@
         }
 
 
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
             #qaz {
                 flex-direction: column;
                 align-items: center;
@@ -713,6 +713,43 @@
 .buttons button:hover {
     background-color: #1b3b92; /* Darker blue for hover effect */
 }
+/* General weather forecast container */
+.forecast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(81, 182, 255, 1) 0%, rgb(173, 218, 238) 100%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Button group for °C/°F and Hourly/Weekly options */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button.active {
+    background-color: #3167d6; /* Brighter blue for active state */
+}
+
+.buttons button:hover {
+    background-color: #1b3b92; /* Darker blue for hover effect */
+}
 
 /* Weather forecast cards section */
 #weather-cards {
@@ -758,7 +795,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     #weekly_container {
         width: 95%;
     }
@@ -770,7 +807,7 @@
     }
 }
 
-
+/* Styling for weather info section */
 .weather-info {
     display: flex;
     flex-direction: column;
@@ -778,12 +815,14 @@
     justify-content: center;
 }
 
+/* Weather container */
 .forecast {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
 }
 
+/* Buttons for °C/°F and Hourly/Weekly options */
 .buttons {
     display: flex;
     justify-content: center;
@@ -801,27 +840,24 @@
 }
 
 .buttons button.active {
-    background-color: rgba(49, 60, 214, 0.918)
-    
-
+    background-color: rgba(49, 60, 214, 0.918);
 }
 
 .buttons button:hover {
     background-color: rgba(24, 11, 92, 0.856) !important;
-         
-    
 }
 
 .buttons .fahrenheit {
     background-color: #333; /* Dark gray for inactive buttons */
 }
+
 .buttons .week {
     background-color: #333; /* Dark gray for inactive buttons */
 }
+
 .buttons .celcius {
     background-color: #333; /* Dark gray for inactive buttons */
 }
-
 
 .buttons .hourly {
     background-color: #333; /* Dark gray for inactive buttons */
@@ -831,53 +867,100 @@
     background-color: #333; /* Light gray on hover for inactive buttons */
 }
 
-#weather-cards {
+/* Additional styling for weekly forecast */
+#weekly_container {
+    width: 100%;
+    max-width: 1118px;
+    background: linear-gradient(180deg, rgba(81, 182, 255, 1) 0%, rgb(173, 218, 238) 100%);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 10px 0;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: weekli 3s ease-in-out 7s;
 }
 
-#weather-cards .card {
+@keyframes weekli {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styling for individual day cards in weekly forecast */
+.forecast-day-card {
     background-color: white;
-    color: black;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
-    min-width: 100px;
-    margin: 0 10px;
-    transition: transform 0.3s ease;
+    width: 100px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#weather-cards .card:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+.forecast-day-card:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
 }
 
-#weather-cards .day-name {
-    font-size: 1.2em;
+.forecast-day-card .day-name {
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    color: #333;
 }
 
-.day-icon {
-    width: 50px;  /* Set a fixed width */
-    height: 50px; /* Set a fixed height */
-    object-fit: contain; /* Ensure the aspect ratio is maintained */
-    display: block;
-    margin: 0 auto; /* Center the icon */
+.forecast-day-card .day-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin: 10px auto;
 }
 
-
-#weather-cards .day-temp {
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.temp-unit {
-    font-size: 0.8em;
+.forecast-day-card .day-temp {
+    font-size: 1.5rem;
     color: #666;
 }
+
+.forecast-day-card .temp-unit {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #weekly_container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    #weather-cards .card {
+        min-width: 90px;
+    }
+}
+
+/* Adjustments for smaller screen sizes */
+@media (max-width: 768px) {
+    #weather-cards {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #weather-cards .card {
+        min-width: 150px; /* Minimum width for cards */
+        max-width: 200px; /* Maximum width for cards */
+    }
+}
+
+@media (max-width: 480px) {
+    #weather-cards .card {
+        min-width: 120px; /* Further adjustments for smaller screens */
+    }
+}
+
 
 
 
@@ -925,7 +1008,8 @@
                         <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
                         <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="hardware.html">Room</a></li>
+                        <li class="nav-item"><a class="nav-link" href="hardware.html" target="_blank">Live</a></li>
+
                     </ul>
                     <form class="d-flex ms-auto mt-2 mt-lg-0" role="search">
                         <div class="button-container">
